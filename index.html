@@ -205,6 +205,10 @@
         cursor: pointer;
         letter-spacing: 0.01em;
     }
+  .highlight-accent {
+    color: var(--accent);
+    font-weight: 700;
+}
     .btn-primary:hover {
         background: var(--accent-dark);
         transform: translateY(-2px);
@@ -569,7 +573,7 @@
     .not-card:last-child { border-bottom: none; }
     .not-icon {
         flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
-        background: #FEF2F2; color: #DC2626;
+        background: #FEF2F2; color: ;
         display: flex; align-items: center; justify-content: center;
         font-size: 0.75rem; font-weight: 800; margin-top: 2px;
     }
@@ -652,48 +656,354 @@ JEE Mains 2026 is <span class="countdown-num" id="daysLeft">--</span> days away 
 </div>
 
 <!-- ====== HERO (unchanged) ====== -->
-<section class="hero">
-<div class="container">
-<div class="hero-eyebrow fade-up">✦ IITuitions (Since 2017) — 10,000+ Students Guided</div>
+<style>
+/* ==========================================================
+   UPDATED HERO SECTION STYLES
+   ========================================================== */
+.hero-optimized {
+    background-color: #FFFFFF;
+    padding: 80px 20px 60px;
+    text-align: center;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
 
-<h1 class="fade-up d1">
-  You Study 8 Hours a Day.<br>
-  <span class="highlight-line">But Nobody Built a Plan for YOU.</span>
-</h1>
+.hero-optimized-container {
+    max-width: 720px;
+    margin: 0 auto;
+}
 
-<p class="hero-sub fade-up d2">
-  I lost my entire 11th grade figuring out what JEE even required. By the time I understood the roadmap, one full year was gone.<br><br>
-  I still cracked JEE — <strong>AIR 367, NIT Warangal.</strong><br>
-  Now my trained team builds that roadmap for you in one 1-on-1 session.<br>
-  <span style="color: var(--text-muted); font-size: 0.9rem;">So your child doesn't lose another year figuring it out alone.</span>
+.hero-eyebrow-pill {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--bg-highlight);
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 32px;
+    letter-spacing: 0.02em;
+}
+
+.hero-headline {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: clamp(2.2rem, 6vw, 3.2rem);
+    line-height: 1.15;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+}
+
+.hero-headline .line-1 {
+    color: #1A1A1A;
+    display: block;
+}
+
+.hero-headline .line-2 {
+    color: var(--accent);
+    display: block;
+    margin-top: 4px;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+  
+.hero-clarity-line {
+    font-size: 1.05rem;
+    color: #1A1A1A; /* Strong conversion red */
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.hero-founder-strip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 48px;
+}
+
+@media (min-width: 640px) {
+    .hero-founder-strip {
+        flex-direction: row;
+        text-align: left;
+    }
+}
+
+.hero-founder-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent-glow);
+}
+
+.hero-founder-info p {
+    margin: 0;
+}
+
+.hero-founder-title {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.hero-founder-stats {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.hero-founder-stats .dot {
+    color: #22C55E;
+    font-size: 0.6rem;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+.hero-offer-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 32px 24px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+    text-align: left;
+}
+
+@media (min-width: 640px) {
+    .hero-offer-card {
+        padding: 40px;
+    }
+}
+
+.offer-card-title {
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 24px;
+}
+
+.offer-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px;
+}
+
+.offer-checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.offer-checklist li i {
+    color: #10B981;
+    margin-top: 4px;
+    font-size: 1.1rem;
+}
+
+.pricing-block {
+    background: #FAF9F6;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.pricing-mission-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.pricing-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.price-strike {
+    font-size: 1.4rem;
+    color: var(--text-muted);
+    text-decoration: line-through;
+    font-weight: 600;
+}
+
+.price-current {
+    font-size: 2.5rem;
+    color: var(--text-primary);
+    font-weight: 800;
+    line-height: 1;
+}
+
+.price-badge {
+    background: var(--green-light);
+    color: var(--green);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transform: translateY(-4px);
+}
+
+.scarcity-line {
+    color: #DC2626;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.hero-cta-btn {
+    display: block;
+    width: 100%;
+    background: var(--accent);
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 1.15rem;
+    font-weight: 700;
+    padding: 18px 24px;
+    border-radius: 16px;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 8px 24px var(--accent-glow);
+}
+
+.hero-cta-btn:hover {
+    background: var(--accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px var(--accent-glow);
+}
+
+.hero-trust-subtext {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-top: 16px;
+    margin-bottom: 24px;
+}
+
+.hero-trust-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.hero-trust-icons span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+@media (max-width: 600px) {
+    .hero-optimized { padding: 100px 16px 40px; }
+    .hero-headline { font-size: 2rem; }
+}
+</style>
+
+<section class="hero-optimized">
+    <div class="hero-optimized-container">
+        
+        <div class="hero-eyebrow-pill fade-up">
+            ✦ 10,000+ Students Guided Since 2017
+        </div>
+
+        <h1 class="hero-headline fade-up d1">
+            <span class="line-1">Your Child Doesn’t Need More Coaching.</span>
+            <span class="line-2">They Need a Clear Plan Before It’s Too Late.</span>
+        </h1>
+
+        <p class="hero-description fade-up d2">
+            In private one-to-one session, we build your child a 
+<span class="highlight-accent">
+personalized 90-day JEE execution roadmap
+</span> — 
+based on their weak chapters, mock scores, and available study hours.
+        </p>
+
+        <p class="hero-clarity-line fade-up d2">
+    No generic advice. No recorded videos. No AI. Just real strategy.
 </p>
 
-<!-- Founder photo — replace src with your actual photo -->
-<div class="fade-up d2" style="display: flex; justify-content: center; margin-bottom: 24px;">
-  <div style="text-align: center;">
-    <img src="t2.png" alt="Prudhvi Chand — Founder, IITuitions" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent); box-shadow: 0 4px 16px var(--accent-glow);">
-    <p style="font-size: 0.72rem; color: var(--text-muted); font-weight: 600; margin-top: 6px;">Prudhvi Chand · AIR 367 · Founder</p>
-  </div>
-</div>
+        <div class="hero-founder-strip fade-up d2">
+            <img src="t2.png" alt="Prudhvi Chand" class="hero-founder-img">
+            <div class="hero-founder-info">
+                <p class="hero-founder-title">Led by Prudhvi Chand's Team · AIR 367 · NIT Warangal</p>
+                <p class="hero-founder-stats"><span class="dot">●</span> 10,000+ students guided since 2017</p>
+            </div>
+        </div>
 
-<div class="hero-cta-group fade-up d3">
-  <a href="#pricing" class="btn-primary">
-    Get My Personalized JEE Roadmap →
-  </a>
-  <span class="btn-subtext">₹5,000+ private mentorship → Just ₹1,499 today</span>
-</div>
+        <div class="hero-offer-card fade-up d3">
+            <h3 class="offer-card-title">YOUR CHILD GETS:</h3>
+            
+            <ul class="offer-checklist">
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    <span><strong>Personalized 90-day roadmap</strong> — what to study, what to skip</span>
+                </li>
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    <span><strong>Weak chapter attack plan</strong> — built from mock gaps</span>
+                </li>
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    <span><strong>100 high-probability JEE questions</strong> — matched 2025 pattern</span>
+                </li>
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    <span><strong>Live 1-on-1 strategy call</strong> (not a video course)</span>
+                </li>
+                <li>
+                    <i class="fa-solid fa-check"></i>
+                    <span><strong>Senior IIT/NIT faculty</strong>, not AI</span>
+                </li>
+            </ul>
 
-<div class="hero-trust fade-up d4">
-  <div class="trust-item"><span class="icon green">🏆</span> AIR 367 — JEE Ranker</div>
-  <div class="trust-item"><span class="icon blue">🎓</span> NIT Warangal Graduate</div>
-  <div class="trust-item"><span class="icon gold">❤️</span> 10,000+ Mentored Since 2017</div>
-</div>
+            <div class="pricing-block">
+                <p class="pricing-mission-text">Founder’s Mission Pricing</p>
+                <div class="pricing-row">
+                    <span class="price-strike">₹5,000</span>
+                    <span class="price-current">₹1,499</span>
+                    <span class="price-badge">ONE-TIME</span>
+                </div>
+                <p class="scarcity-line">⚠️ Only 8 one-on-one slots available today (faculty limit)</p>
+            </div>
 
-<div class="fade-up d4" style="margin-top: 16px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
-  <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600; background: #FEF2F2; padding: 4px 12px; border-radius: 100px;">🔴 Live 1-on-1. Not recorded.</span>
-  <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600; background: var(--blue-light); padding: 4px 12px; border-radius: 100px;">📞 Not a video course</span>
-</div>
-</div>
+            <a href="#pricing" class="hero-cta-btn">
+                Give My Child a Clear Roadmap → ₹1,499
+            </a>
+            
+            <p class="hero-trust-subtext">Instant access to materials + Live session within 24 hours</p>
+            
+            <div class="hero-trust-icons">
+                <span>🔒 Secure Payment</span>
+                <span>⚡ Instant Access</span>
+                <span>🛡️ Clarity Guarantee</span>
+            </div>
+        </div>
+
+    </div>
 </section>
 
 <!-- ====== RESULTS MINI-BANNER (unchanged) ====== -->
@@ -1269,7 +1579,7 @@ No questions asked. Your clarity is our responsibility.
                                 <h4 class="font-bold text-gray-900">Add Handwritten Topper Notes</h4>
                                 <span class="text-yellow-700 bg-yellow-200 text-[10px] font-bold px-2 py-0.5 rounded">+₹299</span>
                             </div>
-                            <p class="text-xs text-gray-700 mt-1 italic">300+ pages of high-yield summary notes. Skip the bulky textbooks.</p>
+                            <p class="text-xs text-gray-700 mt-1 italic">300+ pages of high-yield summary notes. Skip the bulky textbooks,Study Only What Matters.</p>
                         </div>
                     </div>
                 </div>
@@ -1301,7 +1611,7 @@ No questions asked. Your clarity is our responsibility.
 <!-- EDIT #9: Was "Don't Waste Another Day" + notes-focused copy -->
 <h2 class="text-4xl md:text-5xl font-serif font-semibold text-white mb-6">Every Day Without a Plan Is a Day Closer to the Exam With No Direction.</h2>
 <p class="text-lg text-gray-400 mb-10">Get your personalized roadmap today. Your mentor is ready.</p>
-<a href="#pricing" class="inline-block bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold text-lg px-12 py-5 rounded-full shadow-xl transition">Book My 1-on-1 Strategy Session →</a>
+<a href="#pricing" class="inline-block bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold text-lg px-12 py-5 rounded-full shadow-xl transition">Claim My Child’s 1-on-1 Slot → ₹1,499</a>
 <p class="text-sm text-gray-500 mt-6">Have questions? <a href="https://wa.me/918639221271" class="text-green-400 hover:text-green-300 font-semibold">WhatsApp us →</a></p>
 <div class="mt-20">
 <p class="text-2xl font-semibold text-white tracking-wide">IITuitions Mentorship</p>
@@ -1349,9 +1659,9 @@ const elements = {
 function updateDisplay() {
   const total = elements.checkbox.checked ? BASE_PRICE + ADDON_PRICE : BASE_PRICE;
   if (elements.checkbox.checked) {
-    elements.mainBtn.textContent = 'Unlock Strategy + Handwritten Notes @ ₹' + total;
+    elements.mainBtn.textContent = 'RoadMap + Handwritten Notes @ ₹' + total;
   } else {
-    elements.mainBtn.textContent = 'Unlock 1-on-1 JEE Strategy @ ₹' + total;
+    elements.mainBtn.textContent = 'Give My Child a Clear Roadmap @ ₹' + total;
   }
   if (elements.stickyPrice) elements.stickyPrice.textContent = '₹' + total;
 }
